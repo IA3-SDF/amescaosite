@@ -1,0 +1,307 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #059669; /* Emerald 600 - Accent principal */
+  --color-secondary: #3b82f6; /* Blue 500 - Accent secondaire */
+  --color-accent: #8b5cf6; /* Violet 500 - Highlight */
+  --color-primary-rgb: 5, 150, 105;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+}
+
+:root {
+  /* Mode Clair - Palette moderne et lumineuse */
+  --bg-app: #fefefe; /* Blanc cassé pour fond principal */
+  --bg-card: #ffffff; /* Blanc pur pour cartes */
+  --bg-secondary: #f9fafb; /* Gris très clair pour sections secondaires */
+  --text-main: #1a1a1a; /* Gris anthracite pour titres */
+  --text-body: #374151; /* Gris moyen pour corps de texte */
+  --text-muted: #6b7280; /* Gris clair pour texte secondaire */
+  --border-subtle: #e5e7eb; /* Bordures subtiles */
+  --glass-bg: rgba(255, 255, 255, 0.8); /* Glass clair */
+  --glass-border: rgba(229, 231, 235, 0.5); /* Bordure glass */
+  --shadow-light: rgba(0, 0, 0, 0.05); /* Ombres légères */
+  --shadow-hover: rgba(0, 0, 0, 0.15); /* Ombres au hover */
+}
+
+.dark {
+  /* Mode Sombre - Palette profonde et élégante */
+  --bg-app: #0a0a0a; /* Noir profond avec touche bleue */
+  --bg-card: #1a1a1a; /* Gris très foncé pour cartes */
+  --bg-secondary: #141414; /* Gris foncé pour sections secondaires */
+  --text-main: #f5f5f5; /* Blanc crème pour titres */
+  --text-body: #d1d5db; /* Gris clair pour corps */
+  --text-muted: #9ca3af; /* Gris moyen pour secondaire */
+  --border-subtle: #2a2a2a; /* Bordures sombres */
+  --glass-bg: rgba(26, 26, 26, 0.8); /* Glass sombre */
+  --glass-border: rgba(42, 42, 42, 0.5); /* Bordure glass sombre */
+  --shadow-light: rgba(0, 0, 0, 0.2); /* Ombres sombres légères */
+  --shadow-hover: rgba(0, 0, 0, 0.5); /* Ombres au hover sombres */
+}
+
+body {
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  transition:
+    background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+
+  /* Safe Area & Mobile Optimization */
+  overscroll-behavior-y: contain;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+
+  /* iOS Specific */
+  -webkit-user-scalable: 1;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  color: var(--text-main);
+}
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(180%);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 var(--shadow-light);
+}
+
+.dark .glass-card {
+  box-shadow: 0 8px 32px 0 var(--shadow-light);
+}
+
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px var(--shadow-hover);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Animations */
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 5px var(--color-primary),
+      0 0 10px var(--color-primary);
+  }
+  50% {
+    box-shadow:
+      0 0 20px var(--color-primary),
+      0 0 30px var(--color-primary);
+  }
+}
+
+.animate-glow {
+  animation: glow 2s infinite;
+}
+
+.text-gradient {
+  background: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-secondary),
+    var(--color-accent)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Shimmer Effect */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+.dark .shimmer::after {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(5, 150, 105, 0.2),
+    transparent
+  );
+}
+
+/* Boutons et interactions */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #047857; /* Emerald 700 */
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(5, 150, 105, 0.1);
+}
+
+/* Liens */
+a {
+  color: var(--color-primary);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #047857;
+}
+
+/* Formulaires */
+input,
+textarea,
+select {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-body);
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+/* Cartes et sections */
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-body);
+}
+
+.section-secondary {
+  background-color: var(--bg-secondary);
+}
+
+/* Classes utilitaires pour les couleurs */
+.bg-app {
+  background-color: var(--bg-app);
+}
+.bg-card {
+  background-color: var(--bg-card);
+}
+.bg-secondary {
+  background-color: var(--bg-secondary);
+}
+.text-main {
+  color: var(--text-main);
+}
+.text-body {
+  color: var(--text-body);
+}
+.text-muted {
+  color: var(--text-muted);
+}
+.border-subtle {
+  border-color: var(--border-subtle);
+}
+.text-primary {
+  color: var(--color-primary);
+}
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+/* ===== PWA Standalone Mode Display Logic ===== */
+/* Class to show ONLY in standalone PWA mode */
+.pwa-only {
+  display: none;
+}
+
+@media (display-mode: standalone) {
+  .pwa-only {
+    display: revert !important;
+  }
+}
+
+/* Class to hide in standalone PWA mode (browser mode only) */
+.browser-only {
+  display: revert;
+}
+
+@media (display-mode: standalone) {
+  .browser-only {
+    display: none !important;
+  }
+}
+
+/* ring using subtle border color */
+.ring-subtle {
+  box-shadow: 0 0 0 1px var(--border-subtle) !important;
+}

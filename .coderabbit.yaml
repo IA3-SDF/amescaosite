@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+language: "fr-FR"
+
+reviews:
+  profile: "assertive"
+  request_changes_workflow: true
+  high_level_summary: true
+  poem: false
+  auto_review:
+    enabled: true
+    drafts: false
+  # Conversion en tableau de chaînes de caractères (YAML sequence)
+  path_filters:
+    - "!**/node_modules/**"
+    - "!**/dist/**"
+    - "!**/build/**"
+    - "!**/vendor/**"
+    - "!**/*.lock"
+    - "!**/*.min.js"
+    - "!package-lock.json"
+    - "!yarn.lock"
+
+chat:
+  auto_reply: true
