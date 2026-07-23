@@ -676,7 +676,6 @@ export default function Home() {
           </section>
         </div>
       </div>
-      <Footer />
 
       {/* ══════════════════════════════════════════════════════════════
           EVENT MODAL
