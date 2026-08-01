@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const REGISTER_URL = "https://vercel.app";
+const REGISTER_URL = "https://assemble-self-zeta.vercel.app/";
 const DISMISS_KEY = "amescao-ag-banner-dismissed";
 
 export default function AGBanner() {
@@ -50,14 +50,16 @@ export default function AGBanner() {
           </svg>
         </button>
 
-        {/* Badge Officiel épuré */}
-        <div className="relative inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#14245c]/5 text-[#14245c] text-[10.5px] font-extrabold tracking-widest uppercase font-sans">
-          <span className="absolute inset-[-2px] rounded-full border border-[#e5a93b]/40 animate-[agPulse_2.4s_ease-out_infinite]" />
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="text-[#e5a93b]">
+        {/* Badge Officiel — Pulsation Forte Corrigée */}
+        <div className="relative inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#14245c]/8 text-[#14245c] text-[10.5px] font-extrabold tracking-widest uppercase font-sans">
+          {/* Cercle externe de pulsation accentué (Onde de choc) */}
+          <span className="absolute inset-0 rounded-full border-2 border-[#e5a93b] animate-[agStrongPulse_2s_cubic-bezier(0.25,0,0,1)_infinite]" />
+          
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="text-[#e5a93b] z-10">
             <path d="M3 11v2a1 1 0 001 1h2l4 4V6L6 10H4a1 1 0 00-1 1z" fill="currentColor" />
             <path d="M15 8a4 4 0 010 8M18 5a8 8 0 010 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
           </svg>
-          <span>Convocation officielle</span>
+          <span className="z-10">Convocation officielle</span>
         </div>
 
         {/* Textes parfaitement contrastés */}
@@ -73,7 +75,7 @@ export default function AGBanner() {
           </p>
         </div>
 
-        {/* Bouton Blanc Épuré — Visibilité et Contraste Maximaux */}
+        {/* Bouton Blanc Épuré */}
         <a
           className="group mt-1.5 inline-flex items-center gap-2 px-8 py-2.5 rounded-full bg-white border border-[#14245c]/20 text-[#14245c] text-[13.5px] font-extrabold uppercase tracking-wider shadow-[0_4px_12px_rgba(20,36,92,0.08)] hover:shadow-[0_6px_20px_rgba(20,36,92,0.15)] hover:border-[#14245c]/40 hover:-translate-y-[1px] transition-all duration-300 animate-[agSoftGlow_3s_ease-in-out_infinite]"
           href={REGISTER_URL}
@@ -92,7 +94,7 @@ export default function AGBanner() {
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[2.5px] bg-gradient-to-r from-[#e5a93b]/20 via-[#e5a93b] to-[#e5a93b]/20 rounded-t-full animate-[agLineGrow_1s_0.4s_ease-out_forwards]" />
       </div>
 
-      {/* Animations fluides et légères */}
+      {/* Styles des animations */}
       <style jsx global>{`
         @keyframes agGlassEnter {
           from { 
@@ -106,9 +108,22 @@ export default function AGBanner() {
             transform: translate(-50%, 0) scale(1); 
           }
         }
-        @keyframes agPulse {
-          0% { opacity: 0.6; transform: scale(1); }
-          80%, 100% { opacity: 0; transform: scale(1.25); }
+        /* Nouvelle animation de pulsation renforcée et plus visible */
+        @keyframes agStrongPulse {
+          0% { 
+            opacity: 1; 
+            transform: scale(1);
+            border-color: rgba(229, 169, 59, 1);
+          }
+          60% {
+            opacity: 0.4;
+            border-color: rgba(229, 169, 59, 0.7);
+          }
+          100% { 
+            opacity: 0; 
+            transform: scale(1.45); 
+            border-color: rgba(229, 169, 59, 0);
+          }
         }
         @keyframes agSoftGlow {
           0%, 100% { box-shadow: 0 4px 12px rgba(20, 36, 92, 0.08); }
