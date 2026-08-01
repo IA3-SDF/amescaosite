@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { type Dispatch, type SetStateAction, useEffect, useState } from "react";
 import { useLanguage } from "../components/LanguageContext";
 import { useTheme } from "../components/ThemeContext";
+import { AGBanner } from "../components/AGBanner";
 import {
   getBoardMembers,
   getEvents,
@@ -343,11 +344,14 @@ export default function Home() {
   return (
     <div className="bg-app text-body">
       <Navbar />
+      
 
       {/* ══════════════════════════════════════════════════════════════
           HERO SECTION
           ══════════════════════════════════════════════════════════════ */}
       <HeroSection t={t} />
+      {/* AJOUT DE BANNER*/}
+      <AGBanner />
 
       {/* ══════════════════════════════════════════════════════════════
           STATS BAND - Responsive avec scroll horizontal sur mobile
