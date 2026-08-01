@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { type Dispatch, type SetStateAction, useEffect, useState } from "react";
 import { useLanguage } from "../components/LanguageContext";
 import { useTheme } from "../components/ThemeContext";
-import { AGBanner } from "../components/AGBanner";
+import  AGBanner  from "../components/AGBanner";
 import {
   getBoardMembers,
   getEvents,
