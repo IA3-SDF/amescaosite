@@ -1,7 +1,7 @@
 import CookieBanner from "@/src/components/CookieBanner";
 import { IOSPWAOptimizer } from "@/src/components/IOSPWAOptimizer";
 import { PWAInstaller } from "@/src/components/PWAInstaller";
-import Footer from "@/src/components/Footer";
+import PWAFooterGuard from "@/src/components/PWAFooterGuard";
 import type { Metadata, Viewport } from "next";
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/public/icon-192.png",
     shortcut: "/public/icon-192.png",
-    apple: "/public/icon-512.png", // Génère le <link rel="apple-touch-icon"> demandé
+    apple: "/public/icon-512.png", // Génère le <link rel=\"apple-touch-icon\"> demandé
   },
 
   // Configuration PWA pour iOS
@@ -89,7 +89,7 @@ export default function RootLayout({
         <Providers>
           <IOSPWAOptimizer />
           {children}
-          <Footer className="hidden lg:block" />
+          <PWAFooterGuard className="hidden lg:block" />
           <CookieBanner />
           <PWAInstaller />
         </Providers>
