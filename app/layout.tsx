@@ -1,6 +1,7 @@
 import CookieBanner from "@/src/components/CookieBanner";
 import { IOSPWAOptimizer } from "@/src/components/IOSPWAOptimizer";
 import { PWAInstaller } from "@/src/components/PWAInstaller";
+import Footer from "@/src/components/Footer";
 import type { Metadata, Viewport } from "next";
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
@@ -88,6 +89,7 @@ export default function RootLayout({
         <Providers>
           <IOSPWAOptimizer />
           {children}
+          <Footer className="hidden lg:block" />
           <CookieBanner />
           <PWAInstaller />
         </Providers>
