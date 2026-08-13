@@ -22,7 +22,7 @@ const Footer: React.FC<FooterProps> = ({ className = "" }) => {
 
   return (
     <footer
-      className={`bg-secondary border-t border-subtle pt-16 pb-8 ${className}`}
+      className={`browser-only bg-secondary border-t border-subtle pt-16 pb-8 ${className}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
@@ -88,7 +88,7 @@ const Footer: React.FC<FooterProps> = ({ className = "" }) => {
                 <div className="w-7 flex justify-start items-center">
                   <MapPin size={18} className="text-primary shrink-0" />
                 </div>
-                <span>Canton d&apos;Aouda, Togo</span>
+                <span>Canton d'Aouda, Togo</span>
               </li>
             </ul>
           </div>
